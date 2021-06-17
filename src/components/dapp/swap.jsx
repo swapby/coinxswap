@@ -573,13 +573,15 @@ export const Swap = () => {
               </div>
                         
               <div className="wallt_address">
-                Tx
-                {tx? 
+                {tx?
                   <span>
+                    Tx
                     <a href={txUrl} target="_blank" rel="noreferrer">{tx.substring(0, 10)}...{tx.substring(25, 35)}</a>
                   </span>
                   :
                   <span>
+                    Tx
+                    <a href={txUrl} target="_blank" rel="noreferrer">1234567890...1234567890</a>
                   </span>
                 }
                 
