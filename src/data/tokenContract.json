@@ -29,6 +29,11 @@
         "Ropsten": "0xad6d458402f60fd3bd25163575031acdce07538d",
         "Decimals": 18
     },
+    "CSX": {
+        "MainNet": "0x855ccd5ccf497acb2c674cfecac33a7ceb6bb819",
+        "Ropsten": "0x855ccd5ccf497acb2c674cfecac33a7ceb6bb819",
+        "Decimals": 18
+    },
     "ETH": {
         "MainNet": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
         "Ropsten": "0xc778417e063141139fce010982780140aa0cd5ab",
