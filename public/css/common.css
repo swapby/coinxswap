@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+@-ms-viewport{
+  width: device-width;
+}
+
+/* css 초기화 */
+body {background:#fff;position: relative;
+      height: 100%;}
+body,div,p,dl,dd,dt,footer,ol,ul,li,select,input,textarea{
+  margin:0;
+  padding:0;
+  font-family: din-2014,sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color:#222;
+  line-height:150%;
+  letter-spacing: 1px;
+}
+a {text-decoration:none; color:#222;}
+a:focus {outline:none;}
+li{list-style:none;}
+table{border-collapse:collapse;}
+h1, h2, h3, h4, h5, h6{margin: 0; color: #222; line-height: 160%;}
+img{
+  max-width: 100%;
+  vertical-align: middle;
+  border: none;}
+*{box-sizing: border-box;}
+/* link */
+a {text-decoration:none; cursor: pointer;}
+a:focus {outline:none;}
+a link,
+a:visited{text-decoration:none;}
+a:hover,
+a:active {text-decoration:none;}
+
+hr {
+  width: 100%; 
+  border-top:1px solid #eee; 
+  border-left:none; 
+  border-bottom:none; 
+  margin: 0; 
+  padding: 0;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.bg_fa{
+  background-color: #fafafa;
+}
+
+/* form */
+input, textarea, select {appearance: none; -webkit-appearance: none;}
+input:focus,
+select:focus,
+textarea:focus{outline: none;}
+input{vertical-align:middle; border:1px solid #ddd; height:50px; text-indent:10px; box-sizing: border-box; width: 100%;}
+/*input.arrow{background: url('../images/i_arrow_down.png')no-repeat 97% 50%;}*/
+textarea{width: 100%; border: 1px solid #ddd; resize: none;}
