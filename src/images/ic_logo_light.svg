@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ic_logo_light</title>
+    <defs>
+        <polygon id="path-1" points="66.5045 0.485 0.376 101.7735 73.8715 101.7735 140 0.485"></polygon>
+        <linearGradient x1="29.0329484%" y1="75.9871311%" x2="68.8340157%" y2="26.6567316%" id="linearGradient-3">
+            <stop stop-color="#3A75FF" offset="0%"></stop>
+            <stop stop-color="#3A95FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-11">
+            <path d="M256.0005,512 L255.9995,512 C114.615,512 0,397.3855 0,256 L0,256 C0,114.615 114.615,0 255.9995,0 L256.0005,0 C397.3855,0 512,114.615 512,256 L512,256 C512,397.3855 397.3855,512 256.0005,512" id="Fill-1" fill="#FFFFFF"></path>
+            <g id="Group-5" transform="translate(256.000000, 97.500000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-4"></g>
+                <polygon id="Fill-3" fill="url(#linearGradient-3)" mask="url(#mask-2)" points="66.5045 0.485 0.376 101.7735 73.8715 101.7735 140 0.485"></polygon>
+            </g>
+            <g id="Group-10" transform="translate(116.000000, 142.500000)" fill="#1C223B">
+                <polygon id="Fill-6" points="139.624 170.22655 66.1285 170.22655 0 271.51505 73.495 271.51505"></polygon>
+                <path d="M139.96095,168.1758 C109.76395,168.1758 85.28495,143.6968 85.28495,113.4998 C85.28495,83.3033 109.76395,58.8238 139.96095,58.8238 C170.15795,58.8238 194.63695,83.3033 194.63695,113.4998 C194.63695,143.6968 170.15795,168.1758 139.96095,168.1758 M139.96095,0.3173 C77.45145,0.3173 26.77845,50.9908 26.77845,113.4998 C26.77845,176.0093 77.45145,226.6828 139.96095,226.6828 C202.47045,226.6828 253.14345,176.0093 253.14345,113.4998 C253.14345,50.9908 202.47045,0.3173 139.96095,0.3173" id="Fill-8"></path>
+            </g>
+        </g>
+    </g>
+</svg>
