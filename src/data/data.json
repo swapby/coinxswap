@@ -1,0 +1,120 @@
+{
+    "Main": {
+        "title": "Easy for Exchange, Coin Swap",
+        "paragraph1": "Try to use difficult and complex cryptocurrency exchange easily and conveniently with coin swap!",
+        "paragraph2": "Convenient coin swap method without commission!",
+        "link": "Docs"
+
+    },
+    "Project": {
+        "title": "Quickly swap for the coins you want",
+        "paragraph": "Connect the decentralized Crypto wallet and swap it with the other coins.",
+        "features": [
+            "Fast and free P2P Trading",
+            "Direct decentralized transactions between individuals",
+            "Secure OTC transaction based on smart contract",
+            "Zero transaction fees",
+            "Intuitive UI"
+        ]
+    },
+    "Trustless": {
+        "title": "Any coin or quantity trustless escrow",
+        "paragraph1": "OTC transactions that can be shared without third-party escrow risk,",
+        "paragraph2": "Coinswap guarantee P2P transactions through smart contracts."
+    },
+    "Monitoring": {
+        "title": "Real-time network activity monitoring",
+        "paragraph1": "You can trade coins under optimized conditions by monitoring the current trading volume,",
+        "paragraph2": "trading top traders, and recently swapped volumes in real time."
+    },
+    "Allocation": {
+        "title": "Token Allocation",
+        "paragraph": "We transparently share the purpose of using funds.",
+        "TokenAllocation": [
+            "TOKEN ALLOCATION",
+            "Token Sale",
+            "20%",
+            "Team",
+            "10%",
+            "Advisors & Partners",
+            "10%",
+            "Business",
+            "30%",
+            "Development",
+            "30%",
+            "Total",
+            "100%"
+        ],
+        "UseOfFund": [
+            "USE OF FUND",
+            "Crypto Wallet",
+            "25%",
+            "Exchange",
+            "30%",
+            "Protocol",
+            "20%",
+            "Business",
+            "25%",
+            "Total",
+            "100%"
+        ]
+    },
+    "Feature": {
+        "title": "Still hesitating to use Coinswap?",
+        "paragraph1": "Different exchanges have different fees and burdensome deposits removed from coin swaps.",
+        "paragraph2": "Use it right away without signing up.",
+        "features": [
+            "FEE",
+            "DEPOSIT",
+            "LOGIN"
+        ]
+    },
+    "Roadmap": {
+        "title": "CoinSwap Roadmap",
+        "paragraph": "Coinswap is advancing day by day.",
+        "roadmap20Q4": [
+            "2020 Q4",
+            "Partnership"
+        ],
+        "roadmap21Q1": [
+            "2021 Q1",
+            "Swap Protocol Development",
+            "Wallet Connect"
+        ],
+        "roadmap21Q2": [
+            "2021 Q2",
+            "Application Development",
+            "Smart Contract Development"
+        ],
+        "roadmap21Q3": [            
+            "2021 Q3",
+            "Beta Service Launching",
+            "Monitoring Function Development"
+        ],
+        "roadmap21Q4": [            
+            "2021 Q4",
+            "Liquidity Pool",
+            "Coin Listing"
+        ],
+        "roadmap22Q1": [            
+            "2022 Q1",
+            "CoinSwap 1.0",
+            "Trader Event"
+        ],
+        "roadmap22Q2": [            
+            "2022 Q2",
+            "Supporting meta transactions"
+        ],
+        "footer": [
+            "2020 Partnership",
+            "2021 Wallet / Protocol",
+            "2022 Goal"
+        ]
+    },
+    "Footer": {
+        "paragraph": "Cryptocurrency is not legalized as in reality currency. Cryptocurrency is also available 24 hours a day, 365 days a year, and there are no limits to the price, which can change diversely and dramatically due to changes in markets, economy and regulations around the world. Cryptocurrency Investment does not guarantee gains and losses that are attributed to you, so please refrain from unreasonable investments and make a careful decisions.",
+        "copyright": "ⓒ 2020 CoinSwap corp.",
+        "email": "info@coinxswap.com"
+    }
+    
+}
