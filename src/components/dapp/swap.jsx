@@ -26,6 +26,7 @@ import arrowImage from '../../images/swap/image_crossed_arrow.png'
 export const Swap = () => {
   const [sendPair, setSendPair] = useState('UNI')
   const [sendAmount, setSendAmount] = useState('0.000010')
+  const [sendBalance, setSendBalance] = useState('0.00000')
   const [recievePair, setRecievePair] = useState('PAX')
   const [recieveAmount, setRecieveAmount] = useState('0.000010')
   const [isApproved, setIsApproved] = useState(false)
@@ -44,6 +45,7 @@ export const Swap = () => {
 
   const sendPairHandler = (e) => {
     setSendPair(e.target.value)
+    getBalance()
   }
  
   const receivePairHandler = (e) => {
@@ -144,6 +146,64 @@ export const Swap = () => {
     }
   }, [library, account, chainId]);
   
+  const getBalance = () => {
+    const web3 = new Web3(window.ethereum)
+    window.ethereum.enable()
+    let tokenContract;
+
+    if(chainId === 1){
+      // main net
+      if(sendPair === 'USDT'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.USDT.MainNet);
+      }else if(sendPair === 'LINK'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.LINK.MainNet);
+      }else if(sendPair === 'UNI'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.UNI.MainNet);
+      }else if(sendPair === 'PAX'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.PAX.MainNet);
+      }else if(sendPair === 'MKR'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.MKR.MainNet);
+      }else if(sendPair === 'DAI'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.DAI.MainNet);
+      }else if(sendPair === 'CSX'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.CSX.MainNet);
+      }
+
+    }else if(chainId === 3){
+      //ropsten
+      if(sendPair === 'USDT'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.USDT.Ropsten);
+      }else if(sendPair === 'LINK'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.LINK.Ropsten);
+      }else if(sendPair === 'UNI'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.UNI.Ropsten);
+      }else if(sendPair === 'PAX'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.PAX.Ropsten);
+      }else if(sendPair === 'MKR'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.MKR.Ropsten);
+      }else if(sendPair === 'DAI'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.DAI.Ropsten);
+      }else if(sendPair === 'CSX'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.CSX.Ropsten);
+      }
+    }
+    console.log('chainId: ' + chainId)
+    console.log('sendPair: ' + sendPair)
+    console.log(tokenContract.methods)
+    //console.log(tokenContract.methods)
+    //let testAccount = '0x41A058980e0AC42e16Fe942061744eC286333Af0'
+    tokenContract.methods.balanceOf(account).call()
+    .then( balance => {
+      console.log('account: ' + account)
+      console.log(balance);
+        
+      setSendBalance(balance);
+      
+    });
+
+
+  }
+
   const handleApprove = () => {
     const web3 = new Web3(window.ethereum)
     window.ethereum.enable()
