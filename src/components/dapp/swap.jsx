@@ -192,8 +192,8 @@ export const Swap = () => {
           tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.MKR.MainNet);
         }else if(sendPair === 'DAI'){
           tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.DAI.MainNet);
-        }else if(sendPair === 'CSX'){
-          tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.CSX.MainNet);
+        }else if(sendPair === 'CXS'){
+          tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.CXS.MainNet);
         }
 
       }else if(chainId === 3){
@@ -210,8 +210,8 @@ export const Swap = () => {
           tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.MKR.Ropsten);
         }else if(sendPair === 'DAI'){
           tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.DAI.Ropsten);
-        }else if(sendPair === 'CSX'){
-          tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.CSX.Ropsten);
+        }else if(sendPair === 'CXS'){
+          tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.CXS.Ropsten);
         }
       }
       console.log('chainId: ' + chainId)
@@ -256,9 +256,9 @@ export const Swap = () => {
       }else if(sendPair === 'DAI'){
         tokenContract = new web3.eth.Contract(tokenERC20ABI.abi, tokenInfo.DAI.MainNet)
         decimals = tokenInfo.DAI.Decimals
-      }else if(sendPair === 'CSX'){
-        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi, tokenInfo.CSX.MainNet)
-        decimals = tokenInfo.CSX.Decimals
+      }else if(sendPair === 'CXS'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi, tokenInfo.CXS.MainNet)
+        decimals = tokenInfo.CXS.Decimals
       } 
 
       var BN = web3.utils.BN;
@@ -289,9 +289,9 @@ export const Swap = () => {
       }else if(sendPair === 'DAI'){
         tokenContract = new web3.eth.Contract(tokenERC20ABI.abi, tokenInfo.DAI.Ropsten)
         decimals = tokenInfo.DAI.Decimals
-      }else if(sendPair === 'CSX'){
-        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi, tokenInfo.CSX.Ropsten)
-        decimals = tokenInfo.CSX.Decimals
+      }else if(sendPair === 'CXS'){
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi, tokenInfo.CXS.Ropsten)
+        decimals = tokenInfo.CXS.Decimals
       }
 
       /* *********************************************************************************** */
@@ -374,8 +374,8 @@ export const Swap = () => {
           path.push(tokenInfo.MKR.MainNet);
         }else if(recievePair === 'DAI'){
           path.push(tokenInfo.DAI.MainNet);
-        }else if(recievePair === 'CSX'){
-          path.push(tokenInfo.CSX.MainNet);
+        }else if(recievePair === 'CXS'){
+          path.push(tokenInfo.CXS.MainNet);
         }
         console.log('amountOutMin: ' + amountOutMin)
         console.log('path: ' + path)
@@ -416,9 +416,9 @@ export const Swap = () => {
         }else if(sendPair === 'DAI'){
           path.push(tokenInfo.DAI.MainNet);
           decimals = tokenInfo.DAI.Decimals
-        }else if(sendPair === 'CSX'){
-          path.push(tokenInfo.CSX.MainNet);
-          decimals = tokenInfo.CSX.Decimals
+        }else if(sendPair === 'CXS'){
+          path.push(tokenInfo.CXS.MainNet);
+          decimals = tokenInfo.CXS.Decimals
         }
 
         if(sendAmount < 1){
@@ -460,8 +460,8 @@ export const Swap = () => {
             path.push(tokenInfo.MKR.MainNet);
           }else if(recievePair === 'DAI'){
             path.push(tokenInfo.DAI.MainNet);
-          }else if(recievePair === 'CSX'){
-            path.push(tokenInfo.CSX.MainNet);
+          }else if(recievePair === 'CXS'){
+            path.push(tokenInfo.CXS.MainNet);
           }
            
           console.log('amountIn: ' + amountIn)
@@ -513,8 +513,8 @@ export const Swap = () => {
           path.push(tokenInfo.MKR.Ropsten);
         }else if(recievePair === 'DAI'){
           path.push(tokenInfo.DAI.Ropsten);
-        }else if(recievePair === 'CSX'){
-          path.push(tokenInfo.CSX.Ropsten);
+        }else if(recievePair === 'CXS'){
+          path.push(tokenInfo.CXS.Ropsten);
         }
         console.log('amountOutMin: ' + amountOutMin)
         console.log('path: ' + path)
@@ -555,9 +555,9 @@ export const Swap = () => {
         }else if(sendPair === 'DAI'){
           path.push(tokenInfo.DAI.Ropsten);
           decimals = tokenInfo.DAI.Decimals
-        }else if(sendPair === 'CSX'){
-          path.push(tokenInfo.CSX.Ropsten);
-          decimals = tokenInfo.CSX.Decimals
+        }else if(sendPair === 'CXS'){
+          path.push(tokenInfo.CXS.Ropsten);
+          decimals = tokenInfo.CXS.Decimals
         }
 
         if(sendAmount < 1){
@@ -599,8 +599,8 @@ export const Swap = () => {
             path.push(tokenInfo.MKR.Ropsten);
           }else if(recievePair === 'DAI'){
             path.push(tokenInfo.DAI.Ropsten);
-          }else if(recievePair === 'CSX'){
-            path.push(tokenInfo.CSX.Ropsten);
+          }else if(recievePair === 'CXS'){
+            path.push(tokenInfo.CXS.Ropsten);
           }
             
           console.log('amountIn: ' + amountIn)
@@ -660,10 +660,10 @@ export const Swap = () => {
                     <input className="selectopt" name="test" type="radio" id="opt7" value="DAI" checked readOnly/>
                     :<input className="selectopt" name="test" type="radio" id="opt7" value="DAI"/>}
                   <label htmlFor="opt7" className="option"><img src={coinImage9} alt=''/>DAI</label>
-                  {sendPair === "CSX"?
-                    <input className="selectopt" name="test" type="radio" id="opt15" value="CSX" checked readOnly/>
-                    :<input className="selectopt" name="test" type="radio" id="opt15" value="CSX"/>}
-                  <label htmlFor="opt15" className="option"><img src={coinImage10} alt=''/>CSX</label>
+                  {sendPair === "CXS"?
+                    <input className="selectopt" name="test" type="radio" id="opt15" value="CXS" checked readOnly/>
+                    :<input className="selectopt" name="test" type="radio" id="opt15" value="CXS"/>}
+                  <label htmlFor="opt15" className="option"><img src={coinImage10} alt=''/>CXS</label>
                 </form>
               </div>
               <div className="inputbox">
@@ -703,10 +703,10 @@ export const Swap = () => {
                     <input className="selectopt2" name="test2" type="radio" id="opt14" value="DAI" checked readOnly/>
                     :<input className="selectopt2" name="test2" type="radio" id="opt14" value="DAI"/>}
                   <label htmlFor="opt14" className="option"><img src={coinImage9} alt=''/>DAI</label>
-                  {sendPair === "CSX"?
-                    <input className="selectopt2" name="test" type="radio" id="opt16" value="CSX" checked readOnly/>
-                    :<input className="selectopt2" name="test" type="radio" id="opt16" value="CSX"/>}
-                  <label htmlFor="opt16" className="option"><img src={coinImage10} alt=''/>CSX</label>
+                  {sendPair === "CXS"?
+                    <input className="selectopt2" name="test" type="radio" id="opt16" value="CXS" checked readOnly/>
+                    :<input className="selectopt2" name="test" type="radio" id="opt16" value="CXS"/>}
+                  <label htmlFor="opt16" className="option"><img src={coinImage10} alt=''/>CXS</label>
                 </form>
               </div>
               <div className="inputbox">
@@ -721,8 +721,7 @@ export const Swap = () => {
                   </span>
                   :
                   <span>
-                    Tx
-                    <a href={txUrl} target="_blank" rel="noreferrer">1234567890...1234567890</a>
+                    
                   </span>
                 }
                 
