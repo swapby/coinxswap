@@ -1,6 +1,6 @@
-# Developer's Guide with CoinXSwap
+# Developer's Guide CoinXSwap
 
-This document covers structure and its each component's description of CoinXSwap, ethereum based decentralized exchange.
+This document covers structure and description of its each component in CoinXSwap.
 ## Components
 1. Wallet
 
