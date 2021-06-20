@@ -108,6 +108,14 @@ This document covers structure and description of its each component in CoinXSwa
     - uniswapV2ABI.json :  ABI file of uniswap Factory smart contract
     - uniswapV2ERC20ABI.json : ABI file of erc20 smart contract
 
+7. Reference
+    To build more sophisticated methods or concepts, please refer below sites:
+
+    - [Web3.js](https://web3js.readthedocs.io/en/v1.3.4/)
+    - [Ether.js](https://docs.ethers.io/v5/)
+    - [Uniswap documents](https://uniswap.org/docs/v2)
+
+
 ## Build & Run
 
     This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
