@@ -703,7 +703,7 @@ export const Swap = () => {
                     <input className="selectopt2" name="test2" type="radio" id="opt14" value="DAI" checked readOnly/>
                     :<input className="selectopt2" name="test2" type="radio" id="opt14" value="DAI"/>}
                   <label htmlFor="opt14" className="option"><img src={coinImage9} alt=''/>DAI</label>
-                  {sendPair === "CXS"?
+                  {recievePair === "CXS"?
                     <input className="selectopt2" name="test" type="radio" id="opt16" value="CXS" checked readOnly/>
                     :<input className="selectopt2" name="test" type="radio" id="opt16" value="CXS"/>}
                   <label htmlFor="opt16" className="option"><img src={coinImage10} alt=''/>CXS</label>
