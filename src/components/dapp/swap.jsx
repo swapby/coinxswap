@@ -77,7 +77,10 @@ export const Swap = () => {
     setIsApproved(!isApproved)
   }
 
-  
+  /*
+   * 이더리움 관련 라이브러리, native 이더리움 관련 기능(block number, eth balance 등) 제공
+   * 이더리움 체인, 주소, 메타마스크 enable 여부 등을 알 수 있음
+   */
   const context = useWeb3React();
   const {
     //connector,
@@ -91,6 +94,9 @@ export const Swap = () => {
   } = context;
 
   // set up block listener
+  /*
+   * 이더리움 블록넘버 읽어오는 부분
+   */
   const [blockNumber, setBlockNumber] = useState();
   useEffect(() => {
     console.log('running')
@@ -124,6 +130,9 @@ export const Swap = () => {
     }
   }, [library, chainId]);
 
+  /*
+   * 이더리움 balance 가져오는 부분
+   */  
   const [ethBalance, setEthBalance] = useState();
   useEffect(() => {
     console.log('running')
@@ -150,6 +159,9 @@ export const Swap = () => {
     }
   }, [library, account, chainId]);
   
+  /*
+   * sender의 input 태그에서 pair가 바뀔 시 해당 토큰의 balance를 업데이트를 모니터링하는 부분
+   */
   useEffect(() => {
     console.log('sendPair: ' + sendPair + ', chainId: ' + chainId)
     
@@ -172,16 +184,20 @@ export const Swap = () => {
     console.log('send balance: ' + sendBalance)
   }, [sendBalance])
   */
+
+  /*
+   * erc20 토큰의 balance를 읽는 함수
+   */
   const getTokenBalance = () => {
     if(sendPair !== 'ETH'){
-      const web3 = new Web3(window.ethereum)
+      const web3 = new Web3(window.ethereum)  //web3 객체 선언
       window.ethereum.enable()
       let tokenContract;
 
       if(chainId === 1){
         // main net
         if(sendPair === 'USDT'){
-          tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.USDT.MainNet);
+          tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.USDT.MainNet);  //컨트렉트 객체 선언
         }else if(sendPair === 'LINK'){
           tokenContract = new web3.eth.Contract(tokenERC20ABI.abi,tokenInfo.LINK.MainNet);
         }else if(sendPair === 'UNI'){
@@ -219,7 +235,12 @@ export const Swap = () => {
       console.log(tokenContract)
       //console.log(tokenContract.methods)
       let testAccount = '0x41A058980e0AC42e16Fe942061744eC286333Af0'
-      tokenContract.methods.balanceOf(testAccount).call()
+
+      /*
+       * 알고자 하는 Account의 balance 정보를 이더리움 블록체인에 읽어오는 부분
+       * testAccount의 주소를 수정하면 해당 account의 balance를 읽어오게 됨
+       */
+      tokenContract.methods.balanceOf(testAccount).call() 
       .then( balance => {
         console.log('account: ' + account)
         console.log(sendPair, balance);
@@ -232,14 +253,14 @@ export const Swap = () => {
   }
 
   const handleApprove = () => {
-    const web3 = new Web3(window.ethereum)
+    const web3 = new Web3(window.ethereum)  //web3 객체 선언
     window.ethereum.enable()
     
     let tokenContract = null
     let decimals = 0
     if(chainId === 1){
       if(sendPair === 'USDT'){
-        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi, tokenInfo.USDT.MainNet)
+        tokenContract = new web3.eth.Contract(tokenERC20ABI.abi, tokenInfo.USDT.MainNet)  //토큰 컨트렉트 객체 선언
         decimals = tokenInfo.USDT.Decimals
       }else if(sendPair === 'LINK'){
         tokenContract = new web3.eth.Contract(tokenERC20ABI.abi, tokenInfo.LINK.MainNet)
@@ -261,8 +282,24 @@ export const Swap = () => {
         decimals = tokenInfo.CXS.Decimals
       } 
 
-      var BN = web3.utils.BN;
+      /* Big numbr 라이브러리를 통해 숫자의 사칙연산을 할 것이기 때문에 선언 후 사용
+       * 모든 블록체인에서 (정수, 소수점 자리수)로 숫자를 다루는데 이는 스마트컨트렉트 안에서의 연산량을 최대한 줄이기 위한 것
+       * 연산량은 이더리움 수수료의 증감에 영향을 미침.
+       * 예를 들어, 1.1 ETH * 1.03 ETH 라는 계산을 한다고 하면,
+       * 1.1 ETH 라는 숫자는 (1100000000000000000, 18) 표현되고
+       * 1.03 ETH 라는 숫자는 (1030000000000000000, 18) 표협됩니다.
+       * 1.1 ETH * 1.03 ETH는 고로 1100000000000000000 * 1030000000000000000를 한 뒤 10^18을 두번 나누는 작업을 합니다.
+       * 앞의 숫자가 너무 크기 떄문에 변수에 안들어가는 경우(overflow)가 생기기때문에 제대로 된 곱셈 결과를 기대할 수 없습니다.
+       * 이런 경우 말고도 underflow도 생길 수 있으며 원인은 동일합니다.
+       * 이런 경우를 피하기 위해 아래 line 297과 같이 숫자를 big number 객체에 넣어 계산을 합니다.
+       */
+      var BN = web3.utils.BN; 
       var approveAmount = new BN(String(sendAmount)).mul(new BN(String(1 * 10 ** decimals)))
+
+      /*
+       * erc20 토큰의 경우 본인이 아닌 다른 주소가 본인의 토큰 발란스를 이용하려면 위임을 해주어야 합니다.
+       * approve는 바로 위임해주는 method이며, 본 코드에서 uniswap의 factory contract가 사용자의 token을 위임받아 swap해주어야 하는 부분 때문에 필요합니다.
+       */
 
       tokenContract.methods.approve(tokenInfo.FACTORY.MainNet, approveAmount)
       .send({from: account})
@@ -324,6 +361,9 @@ export const Swap = () => {
     path.push(tokenInfo.DAI.MainNet)
     let amountIn = new BN(String(1 * 10 ** tokenInfo.ETH.Decimals))
 
+    /*
+     * Sender의 입장에서 sending 토큰이 몇개의 receiving 토큰으로 바뀔지에 대해 uniswap contract에 물어보는 기능입니다.
+     */
     uniSwapContract.methods.getAmountsOut(amountIn, path)
     .call().then( result => {
       console.log('get amounts Out ouput : ')
@@ -337,6 +377,8 @@ export const Swap = () => {
     var BN = web3.utils.BN;
 
     let uniSwapContract = null
+    
+    // 컨트렉트 객체를 선언할 때 다음과 같이 gas option으로 gas fee를 설정할 수 있습니다.
     let ContractOptions = {
       gas: '298785',
       gasPrice: web3.utils.toWei('44', 'gwei')
@@ -383,6 +425,8 @@ export const Swap = () => {
         console.log('deadline: ' + deadline)
         console.log('from: ' + account)
         console.log('value: ' + amountIn)
+
+        // uniswap contract의 swapExactETHForTokens method를 이용하여 Eth <-> erc20를 swap할 수 있습니다.
         uniSwapContract.methods
         .swapExactETHForTokens(amountOutMin, path, to, deadline)
         .send({from: account, value: amountIn})
@@ -438,6 +482,7 @@ export const Swap = () => {
           console.log('to: ' + to)
           console.log('deadline: ' + deadline)
           console.log('from: ' + account)
+          // uniswap contract의 swapExactETHForTokens method를 이용하여 erc20 <-> ETH를 swap할 수 있습니다.
           uniSwapContract.methods
           .swapExactTokensForETH(amountIn, amountOutMin, path, to, deadline)
           .send({from: account})
@@ -522,6 +567,7 @@ export const Swap = () => {
         console.log('deadline: ' + deadline)
         console.log('from: ' + account)
         console.log('value: ' + amountIn)
+        // uniswap contract의 swapExactETHForTokens method를 이용하여 erc20 <-> erc20 swap할 수 있습니다.
         uniSwapContract.methods
         .swapExactETHForTokens(amountOutMin, path, to, deadline)
         .send({from: account, value: amountIn})
