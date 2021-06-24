@@ -29,7 +29,7 @@
         "Ropsten": "0xad6d458402f60fd3bd25163575031acdce07538d",
         "Decimals": 18
     },
-    "CSX": {
+    "CXS": {
         "MainNet": "0x855ccd5ccf497acb2c674cfecac33a7ceb6bb819",
         "Ropsten": "0x855ccd5ccf497acb2c674cfecac33a7ceb6bb819",
         "Decimals": 18
@@ -44,5 +44,4 @@
         "MainNet": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
         "Ropsten": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D"
     }
-    
 }
