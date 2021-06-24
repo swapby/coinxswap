@@ -114,6 +114,7 @@ This document covers structure and description of its each component in CoinXSwa
     - [Web3.js](https://web3js.readthedocs.io/en/v1.3.4/)
     - [Ether.js](https://docs.ethers.io/v5/)
     - [Uniswap documents](https://uniswap.org/docs/v2)
+    - [how to set developing environment(truffle) and deploy smart contract](https://betterprogramming.pub/how-to-simply-deploy-a-smart-contract-on-ethereum-714c692e00c)
 
 
 ## Build & Run
